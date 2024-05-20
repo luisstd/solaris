@@ -12,7 +12,9 @@
     "@radix-ui/themes": "^3.0.5",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-globe.gl": "^2.27.2",
+    "satellite.js": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
