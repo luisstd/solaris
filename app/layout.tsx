@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Roboto_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Solaris",
-  description: "Orbitviewer",
+	title: "Solaris",
+	description: "Satellite tracker",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Theme>{children}</Theme>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body className={font.className}>
+				<Theme>{children}</Theme>
+			</body>
+		</html>
+	);
 }
