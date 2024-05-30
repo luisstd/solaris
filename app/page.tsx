@@ -1,7 +1,11 @@
 "use client";
-import EarthGlobe from "@/app/components/globe";
 import { Card, Section, Strong, Text } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
+import dynamic from "next/dynamic";
+
+const EarthGlobe = dynamic(() => import("@/app/components/globe"), {
+	ssr: false,
+});
 
 export default function Main() {
 	const { data: satelliteTleData } = useQuery({
