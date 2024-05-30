@@ -1,5 +1,6 @@
 "use client";
-import { Card, Section, Strong, Text } from "@radix-ui/themes";
+import { GlobeIcon, InfoCircledIcon } from "@radix-ui/react-icons";
+import { Button, Card, Flex, Section, Strong, Text } from "@radix-ui/themes";
 import { useQuery } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 
@@ -23,9 +24,18 @@ export default function Main() {
 		<>
 			<Section size={"1"}>
 				<Card>
-					<Text size={"3"}>
-						<Strong>solaris</Strong>
-					</Text>
+					<Flex justify={"between"} align={"center"}>
+						<Flex align={"center"} gap={"2"}>
+							<GlobeIcon style={{ width: "24px", height: "24px" }} />
+							<Text size={"3"}>
+								<Strong>Solaris</Strong>
+							</Text>
+						</Flex>
+						<Button variant="ghost" radius="medium">
+							<InfoCircledIcon />
+							Info
+						</Button>
+					</Flex>
 				</Card>
 			</Section>
 
