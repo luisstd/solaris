@@ -1,9 +1,14 @@
-import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import type { Metadata } from "next";
+import { Roboto_Mono } from "next/font/google";
+import "@/app/globals.css";
 
-const font = Roboto_Mono({ subsets: ["latin"] });
+const font = Roboto_Mono({
+	display: "swap",
+	subsets: ["latin"],
+	variable: "--font-roboto-mono",
+});
 
 export const metadata: Metadata = {
 	title: "Solaris",
@@ -12,13 +17,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
 			<body className={font.className}>
-				<Theme>{children}</Theme>
+				<Theme appearance="dark">{children}</Theme>
 			</body>
 		</html>
 	);
