@@ -6,5 +6,7 @@ type EarthGlobeProps = {
 };
 
 export default function EarthGlobe({ data }: EarthGlobeProps) {
-	return <Globe />;
+	return (
+		<Globe width={window.innerWidth - 20} height={window.innerHeight - 250} />
+	);
 }
