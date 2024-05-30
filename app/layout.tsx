@@ -3,6 +3,7 @@ import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import "@/app/globals.css";
+import { Providers } from "@/app/providers";
 
 const font = Roboto_Mono({
 	display: "swap",
@@ -21,7 +22,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={font.className}>
-				<Theme appearance="dark">{children}</Theme>
+				<Providers>
+					<Theme appearance="dark">{children}</Theme>
+				</Providers>
 			</body>
 		</html>
 	);
