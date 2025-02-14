@@ -36,7 +36,13 @@ export default function EarthGlobe({ data }: EarthGlobeProps) {
 				sat.satrec,
 				new Date(),
 			);
+			if (!positionAndVelocity || !positionAndVelocity.position) {
+				return null;
+			}
 			const positionEci = positionAndVelocity.position;
+			if (typeof positionEci !== "object") {
+				return null;
+			}
 			const gmst = gstime(new Date());
 			const positionGd = eciToGeodetic(positionEci, gmst);
 
@@ -47,7 +53,7 @@ export default function EarthGlobe({ data }: EarthGlobeProps) {
 				alt: positionGd.height / EARTH_RADIUS_KM,
 			};
 		})
-		.filter((d) => !!d.lat && !!d.lng && !!d.alt)
+		.filter((d) => d !== null && !!d.lat && !!d.lng && !!d.alt)
 		.slice(0, 1500);
 
 	console.log(satData);
@@ -58,7 +64,7 @@ export default function EarthGlobe({ data }: EarthGlobeProps) {
 			height={window.innerHeight - 250}
 			globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
 			backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-			objectsData={satData}
+			objectsData={satData as object[]}
 			objectLabel="name"
 			objectLat="lat"
 			objectLng="lng"
