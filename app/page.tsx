@@ -13,7 +13,7 @@ export default function Main() {
 		queryKey: ["satellites"],
 		queryFn: async () => {
 			const res = await fetch("/api/satellites");
-			const data = await res.json();
+			const data = await res.text();
 			return data;
 		},
 		refetchOnReconnect: false,
@@ -39,7 +39,7 @@ export default function Main() {
 				</Card>
 			</Section>
 
-			<EarthGlobe data={satelliteTleData} />
+			{satelliteTleData && <EarthGlobe data={satelliteTleData} />}
 		</>
 	);
 }
